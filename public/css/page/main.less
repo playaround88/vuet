@@ -1,0 +1,201 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    background: #eee;
+}
+
+@keyframes gradientswitch {
+    0% {
+        background: #0087C9;
+    }
+    16% {
+        background: #EF4A53;
+    }
+    32% {
+        background: #FFB463;
+    }
+    49% {
+        background: #33D5D4;
+    }
+    65% {
+        background: #254356;
+    }
+    81% {
+        background :#5B4097
+    }
+    100% {
+        background: #0087C9
+    }
+}
+
+@-webkit-keyframes gradientswitch {
+    0% {
+        background: #0087C9;
+    }
+    16% {
+        background: #EF4A53;
+    }
+    32% {
+        background: #FFB463;
+    }
+    49% {
+        background: #33D5D4;
+    }
+    65% {
+        background: #254356;
+    }
+    81% {
+        background :#5B4097
+    }
+    100% {
+        background: #0087C9
+    }
+}
+
+// --
+#menu{
+    width: 40px;
+    height: 100%;
+    float: left;
+
+    box-shadow: 3px 0px 3px #aaa;
+
+    background: #254356;
+	animation: gradientswitch 50s infinite;
+	-webkit-animation: gradientswitch 50s infinite;
+}
+
+@btn-size:60px;
+#tplSaveBtn{
+    width: @btn-size;
+    height: @btn-size;
+    line-height:@btn-size; 
+
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+
+    text-align: center;
+    color: #eee;
+
+    border-radius: 40px;
+    background: #FFB463;
+    animation: gradientswitch 50s infinite;
+	-webkit-animation: gradientswitch 50s infinite;
+
+    box-shadow: 0 0 5px #aaa;
+    z-index: 50;
+    cursor: pointer;
+
+    &:hover{
+        color:#fff;
+        font-weight: 700;
+    }
+}
+
+
+//------------------------------------------------
+
+#workspace{
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+
+    #preview{
+        height: 100%;
+        overflow: hidden;
+        border-right: 1px solid #aaa;
+        position: relative;
+
+        .content{
+            width: 100%;
+            height: 100%;
+            
+            .template{
+                //height: 700px;
+
+                margin: 10px 40px;
+                padding: 20px 20px 50px;
+                background: white;
+
+                h2.active{
+                    border:1px dashed red;
+                }
+                span.active{
+                    display: inline-block;
+                    padding:5px;
+                    border:1px dashed red;
+                }
+                
+            }
+        }
+
+    }
+    
+    aside{
+        width: 25%;
+        min-width: 220px;
+        height: 100%;
+        margin-left: 3px;
+        float: right;
+
+        border-left: 1px solid #aaa;
+        position: relative;
+
+        .menubar{
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+
+            padding-left: auto 10px;
+
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+        }
+
+        #treepane{
+            position: relative;
+            height: 40%;
+
+            .tree{
+                background: white;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 40px;
+                padding:10px;
+            }
+            li:hover{
+                background: #ddd
+            }
+
+            a{
+                cursor: pointer;
+            }
+
+            a.active{
+                background:#FFB463;
+            }
+        }
+
+        #editpane{
+            position: relative;
+            height: 60%;
+
+            .editor{
+                background: white;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 40px;
+                padding:10px;
+                overflow: hidden;
+            }
+        }
+    }
+    
+}
