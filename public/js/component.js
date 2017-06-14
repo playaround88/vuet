@@ -6,6 +6,7 @@ Vue.component('tpl',{
         <form :action="url" method="POST">
         <h2 :class="{active:active}">{{name}}</h2>
         <hr />
+        <input type="hidden" name="id" value="58fd66a12662372a100c7000" />
             <template v-for="f of fields">
                 <text-input v-if="f.type=='text-input'" 
                     :label="f.label" 
@@ -80,15 +81,6 @@ Vue.component('fset',{
 */
 
 //<text-input :label="label" :name="name" :value="value" :lbbr="lbbr" />
-var textInputDefault={
-    type:'text-input',
-    label:'新建组件',
-    name:'key-for-save',
-    value:'',
-    active:false,
-    lbbr:true,
-    lnbr:true
-}
 Vue.component('text-input',{
     props:['label','name','value','active','lbbr'],
     template:
@@ -101,15 +93,6 @@ Vue.component('text-input',{
     `
 });
 
-var passwordInputDefault={
-    type:'password-input',
-    label:'新建组件',
-    name:'key-for-save',
-    value:'',
-    active:false,
-    lbbr:true,
-    lnbr:true
-}
 Vue.component('password-input',{
     props:['label','name','value','active','lbbr'],
     template:
@@ -122,15 +105,6 @@ Vue.component('password-input',{
     `
 });
 
-var selectorDefault={
-    type:'selector',
-    label:'新建组件',
-    name:'key-for-save',
-    options:[],
-    active:false,
-    lbbr:true,
-    lnbr:true
-}
 Vue.component('selector',{
     props:['label','name','options','active','lbbr'],
     template:
@@ -145,15 +119,6 @@ Vue.component('selector',{
     `
 });
 
-var textareaDefault={
-    type:'text-area',
-    label:'新建组件',
-    name:'key-for-save',
-    content:'',
-    active:false,
-    lbbr:true,
-    lnbr:true
-}
 Vue.component('text-area',{
     props:['label','name','content','active','lbbr'],
     template:

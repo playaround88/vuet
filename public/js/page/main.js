@@ -31,10 +31,10 @@ var app = new Vue({
                     @select="select"
                     @add="add"
                     @del="del" />
-                <editpane :n="cursor.c" />
+                <editpane :n="cursor.c" @apply="apply"/>
             </aside>
             <div id="preview">
-                <div id="tplSaveBtn">保存</div>
+                <div id="tplSaveBtn" @click="save">保存</div>
                 <div class="content mCustomScrollbar" data-mcs-theme="dark">
                     <tpl :name="tpl.name" 
                         :url="tpl.url" 
@@ -45,6 +45,18 @@ var app = new Vue({
         </div>
         `,
     methods: {
+        save:function(){
+            $.ajax({
+                    url:'/tpl/',
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: 'json',
+                    data:JSON.stringify(tplData),
+                    success: function(result) {
+                        alert(result.msg);
+                    }
+                    });
+        },
         select: function (e) {
             //获取点击的节点name
             var name = e.target.getAttribute("kn");
@@ -93,6 +105,10 @@ var app = new Vue({
             //选中当前模板
             this.cursor.c=this.tpl;
             this.tpl.active=true;
+        },
+        apply:function(id){
+            var c=$('#'+id).find('form').serializeObject();
+            $.extend(this.cursor.c, c);
         }
     }
 });

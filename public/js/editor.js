@@ -45,6 +45,8 @@ Vue.component('editpane',{
         <div id="editpane">
             <div class="editor mCustomScrollbar" data-mcs-theme="dark">
                 <div><!-- 这里有个bug，不包一层，就渲染不了 -->
+                <b>编辑</b>
+                <hr />
                 <tpl-editor v-if="n.type=='tpl'"
                     :name="n.name" />
                 <text-input-editor v-if="n.type=='text-input'" 
@@ -62,10 +64,15 @@ Vue.component('editpane',{
                 </div>
             </div>
             <div class="menubar">
-                <input type="button" value="应用修改" />
+                <input type="button" value="应用修改" @click="apply" />
             </div>
         </div>
-    `
+    `,
+    methods:{
+        apply:function(e){
+            this.$emit('apply','editpane');
+        }
+    }
 });
 
 Vue.component('tpl-editor',{
@@ -73,18 +80,29 @@ Vue.component('tpl-editor',{
     template:
     `
     <form>
+    <input type="hidden" name="type" value="tpl" />
         <label>模板标题：</label><br />
-        <input type="text" name="tplName" :value="name" /><br />
+        <input type="text" name="name" :value="name" /><br />
     </form>
     `
 });
 
 //<text-input-editor :label="label" :name="name" :value="value" :lbbr="lbbr" :lnbr="lnbr" />
+var textInputDefault={
+    type:'text-input',
+    label:'新建组件',
+    name:'key-for-save',
+    value:'',
+    active:false,
+    lbbr:true,
+    lnbr:true
+}
 Vue.component('text-input-editor',{
     props:['label','name','value','lbbr','lnbr'],
     template:
     `
     <form>
+    <input type="hidden" name="type" value="text-input" />
         <label>标签：</label><br />
         <input type="text" name="label" :value="label" /><br />
         <label>标签后是否换行：</label><br />
@@ -106,11 +124,21 @@ Vue.component('text-input-editor',{
 });
 
 //<password-input-editor :label="label" :name="name" :lbbr="lbbr" :lnbr="lnbr" />
+var passwordInputDefault={
+    type:'password-input',
+    label:'新建组件',
+    name:'key-for-save',
+    value:'',
+    active:false,
+    lbbr:true,
+    lnbr:true
+}
 Vue.component('password-input-editor',{
     props:['label','name','lbbr','lnbr'],
     template:
     `
     <form>
+    <input type="hidden" name="type" value="password-input" />
         <label>标签：</label><br />
         <input type="text" name="label" :value="label" /><br />
         <label>标签后是否换行：</label><br />
@@ -128,3 +156,23 @@ Vue.component('password-input-editor',{
     </form>
     `
 });
+
+var selectorDefault={
+    type:'selector',
+    label:'新建组件',
+    name:'key-for-save',
+    options:[],
+    active:false,
+    lbbr:true,
+    lnbr:true
+};
+
+var textareaDefault={
+    type:'text-area',
+    label:'新建组件',
+    name:'key-for-save',
+    content:'',
+    active:false,
+    lbbr:true,
+    lnbr:true
+};

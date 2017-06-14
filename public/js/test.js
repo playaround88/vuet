@@ -49,6 +49,7 @@ var fsetData = {
 //<fset :legend="legend" :fields="fields" />
 
 var tplData = {
+    _id:'58fd66a12662372a100c7000',
     type: 'tpl',
     name: '测试模板单',
     url: '/formSave',

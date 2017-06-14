@@ -8,12 +8,20 @@ router.get('/', function(req, res, next) {
 
 //显示登陆界面
 router.get('/login', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('login', { title: 'Express' });
 });
 
 //登录操作
 router.post('/login', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var userName = req.body["userName"];
+  var password = req.body["password"];
+
+  if(userName==='admin' && password==='admin123'){
+    req.session['user']={userName:userName};
+    res.redirect('/main');
+  }else{
+    res.redirect('/login');
+  }
 });
 
 //主页面
