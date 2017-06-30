@@ -33,7 +33,7 @@ Vue.component('tpl',{
                     :class="{active:f.active}"
                     :lbbr="f.lbbr" />
 
-                <br v-if="f.lnbr" />
+                <br v-if="f.lnbr=='true'" />
             </template>
             <div style="margin-top:20px;text-align:center;">
             <input type="submit" value="提交" />
@@ -87,7 +87,7 @@ Vue.component('text-input',{
     `
         <span :class="{active:active}">
         <label>{{label}}: </label>
-        <br v-if="lbbr" />
+        <br v-if="lbbr=='true'" />
         <input type="text" :name="name" :value="value" />
         </span>
     `
@@ -99,7 +99,7 @@ Vue.component('password-input',{
     `
         <span :class="{active:active}">
         <label>{{label}}: </label>
-        <br v-if="lbbr" />
+        <br v-if="lbbr=='true'" />
         <input type="password" :name="name" :value="value" />
         </span>
     `
@@ -111,7 +111,7 @@ Vue.component('selector',{
     `
     <span :class="{active:active}">
         <label>{{label}}: </label>
-        <br v-if="lbbr" />
+        <br v-if="lbbr=='true'" />
         <select :name="name">
             <option v-for="op in options" v-bind:value="op.value">{{op.text}}</option>
         </select>
@@ -125,7 +125,7 @@ Vue.component('text-area',{
     `
     <span :class="{active:active}">
         <label>{{label}}: </label>
-        <br v-if="lbbr" />
+        <br v-if="lbbr=='true'" />
         <textarea :name="name">{{content}}</textarea>
     </span>
     `

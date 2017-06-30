@@ -5,8 +5,8 @@ var textData = {
     label: '姓名',
     name: 'userName',
     value: '',
-    lbbr: true,
-    lnbr: true
+    lbbr: 'true',
+    lnbr: 'true'
 };
 //<text-input :label="label" :name="name" :value="value" :lbbr="lbbr" />
 
@@ -15,8 +15,8 @@ var pswdData = {
     label: '密码',
     name: 'password',
     value: '',
-    lbbr: true,
-    lnbr: true
+    lbbr: 'true',
+    lnbr: 'true'
 };
 //<password-input :label="label" :name="name" :value="value" :lbbr="lbbr" />
 
@@ -25,8 +25,8 @@ var selectData = {
     label: '性别',
     name: 'sex',
     options: [{ value: '1', text: '男' }, { value: '2', text: '女' }],
-    lbbr: true,
-    lnbr: true
+    lbbr: 'true',
+    lnbr: 'true'
 }
 //<selector :label="label" :name="name" :options="options" :lbbr="lbbr" />
 
@@ -36,8 +36,8 @@ var areaData = {
     label: '家庭住址',
     name: 'address',
     content: '山东省菏泽市曹县',
-    lbbr: true,
-    lnbr: true
+    lbbr: 'true',
+    lnbr: 'true'
 }
 //<text-area :label="label" :name="name" :content="content" :lbbr="lbbr" />
 
